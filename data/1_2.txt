@@ -1,0 +1,23 @@
+1.2 
+Určení složitosti algoritmu
+
+Algoritmus provádí sérii vnořených cyklů, kde se počet iterací každého cyklu mění v závislosti na indexech vnějších cyklů.
+
+Složitost algoritmu:
+
+Vnější cyklus (i) se provádí (n-2)-krát.
+Střední cyklus (j) se provádí (n-1-i)-krát pro každou hodnotu i.
+Vnitřní cyklus (k) se provádí (n-i+1)-krát pro každou kombinaci i a j.
+Celkový počet operací tedy bude:
+
+\sum_{i=0}^{n-2} \sum_{j=i+1}^{n-1} \sum_{k=i}^{n} 1
+
+Po vyřešení této trojité sumy dostaneme výsledek:
+
+(1/6) * n^3 + (1/2) * n^2 + (1/3) * n
+
+Asymptotická složitost algoritmu je tedy O(n^3).
+
+Zefektivnění algoritmu:
+
+Výpočet A[j, i]/A[i, i] ve vnitřním cyklu se opakuje pro každé k, ale jeho hodnota se nemění. Mohli bychom tento výraz předpočítat před vnitřním cyklem a ušetřit tak operace dělení.
